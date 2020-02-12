@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <script type="text/javascript">
+            function preventBack() { window.history.forward(); }
+            
+            setTimeout("preventBack()", 0);
+            window.onunload = function () { null };
+        </script>
+<title>Login For Players</title>
+
+<form method="POST">
+          {% csrf_token %}
+
+          {{ form.as_table }}
+          <input type="submit" value="submit">
+{%for j in boarding%}
+    {{j.Name}}<br>
+{%endfor%}
+</form>
+
+</body>
+</html>

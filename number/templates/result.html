@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <script type="text/javascript">
+            function preventBack() { window.history.forward(); }
+            
+            setTimeout("preventBack()", 0);
+            window.onunload = function () { null };
+        </script>
+<h4 align='center'>Your score is {{score}}</h4>
+<a href="{% url 'puzzle' %}"><h4 align='center'>Try Another One</h4></a>
+<a href='/'><h4 align='center'>Logout</h4></a>
+</body>
+</html>

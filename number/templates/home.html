@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 30%;
+  height: 50%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 20px;
+}
+
+.firstRow{
+  background-color: #e6e6ff;
+}
+.secondRow{
+  background-color: #00e6e6;
+}
+.thirdRow{
+  background-color: #ffe6e6;
+}
+</style>
+</head>
+<body>
+<script type="text/javascript">
+  function pageRedirect() {
+    window.location.replace("{% url 'pg' %}");
+  }
+
+  setTimeout("pageRedirect()", 1600);
+</script>
+
+<h2 align="center">Remember these Number, You are going to play game</h2>
+
+<table align="center">
+  <tr class="firstRow">
+    <td height="20%">{{one}}</td>
+    <td height="20%">{{two}}</td>
+    <td height="20%">{{three}}</td>
+  </tr>
+  <tr class="secondRow">
+    <td height="20%">{{four}}</td>
+    <td height="20%">{{five}}</td>
+    <td height="20%">{{six}}</td>
+  </tr>
+  <tr class="thirdRow">
+    <td height="20%">{{seven}}</td>
+    <td height="20%">{{eight}}</td>
+    <td height="20%">{{nine}}</td>
+  </tr>
+</table>
+<a href="{% url 'puzzle' %}"><h4 align='center'>Try Again</h4></a>
+</body>
+</html>

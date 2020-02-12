@@ -1,0 +1,87 @@
+<html>
+<head>
+    
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 30%;
+            height: 50%;
+        }
+
+        td, th{
+            border: 1px solid;
+            text-align: center;
+            padding: 20px;
+        }
+
+        input{
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+    
+</head>
+<script>
+
+    function myfunction(e,nameValue){
+        if (((e.keyCode>= 48 || e.which>=48)&& (e.keyCode<=57 ||e.which<=57))  || ((e.keyCode>= 97 || e.which>=97)&& (e.keyCode<=105 ||e.which<=105))){
+            document.getElementsByName("box"+nameValue)[0].focus();
+        }
+    }
+
+
+    function fn_focus(){
+        document.getElementsByName("box1")[0].focus();
+    }
+</script>
+<body onload="fn_focus()" style="background-color:rgb(95, 196, 191);">
+    <!-- <script type="text/javascript">
+        function pageRedirect() {
+          window.location.replace("http://127.0.0.1:8000/results/+id+/");
+        }
+      
+        setTimeout("pageRedirect()", 10000);
+      </script> -->
+      <!-- <script type="text/javascript">
+
+        function pageRedirect() {
+    
+          window.location.href = "http://127.0.0.1:8000/results/+id+/";
+    
+        }      
+    
+    </script>  -->
+    <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+<center><h1>Enter Remembered Numbers in same Order</h1></center><hr>
+<div class="container" align="center">
+<form method="POST">
+{% csrf_token %}
+    <table>
+        <tr>
+            <td><input type="text" name="box1" size="1" maxlength="1" onkeyup="myfunction(event,2)"></td>
+            <td><input type="text" name="box2" size="1" maxlength="1" onkeyup="myfunction(event,3)"></td>
+            <td><input type="text" name="box3" size="1" maxlength="1" onkeyup="myfunction(event,4)"></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="box4" size="1" maxlength="1" onkeyup="myfunction(event,5)"></td>
+            <td><input type="text" name="box5" size="1" maxlength="1" onkeyup="myfunction(event,6)"></td>
+            <td><input type="text" name="box6" size="1" maxlength="1" onkeyup="myfunction(event,7)"></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="box7" size="1" maxlength="1" onkeyup="myfunction(event,8)">
+            <td><input type="text" name="box8" size="1" maxlength="1" onkeyup="myfunction(event,9)"></td>
+            <td><input type="text" name="box9" size="1" maxlength="1"></td>
+        </tr>
+    </table><br><br>
+<input type="submit" submit="Done" value="SUBMIT">
+</form>
+</div>
+<a href="{% url 'puzzle' %}"><h4 align='center'>Try Another One</h4></a>
+</body>
+</html>
